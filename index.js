@@ -408,7 +408,7 @@ class SortableGrid extends Component {
           let blockIndex = _.findIndex(this.itemOrder, item => item.order === order)
           let x = (order * this.state.blockWidth) % (this.itemsPerRow * this.state.blockWidth)
           let y = Math.floor(order / this.itemsPerRow) * this.state.blockWidth
-          if (this.state.blockPositions[blockIndex]) {
+          if (!!this.state.blockPositions[blockIndex]) {
             this.state.blockPositions[blockIndex].origin = {x, y}
             this.animateBlockMove(blockIndex, {x, y})
           }
