@@ -60,7 +60,10 @@ class SortableGrid extends Component {
               panHandlers = { this._panResponder.panHandlers }
               delayLongPress = { this.dragActivationTreshold }
               onLongPress = { this.activateDrag(key) }
-              onPress = { this.handleTap(item.props) }
+              onPress = { () => {
+                !!this.props.onPress && this.props.onPress(item.props);
+                this.handleTap(item.props) 
+              }}
               itemWrapperStyle = { this._getItemWrapperStyle(key) }
               deletionView = { this._getDeletionView(key) }
             >
